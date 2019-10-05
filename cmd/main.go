@@ -7,7 +7,6 @@ import (
 	"net/http"
 
 	"github.com/graphql-go/graphql"
-	"github.com/mitubaEX/graphQL_sample/application/graphql_util"
 )
 
 func main() {
@@ -19,7 +18,11 @@ func main() {
 			fmt.Print(err)
 		}
 
-		result := executeQuery(fmt.Sprintf("%s", body), graphql_util.Schema)
+		schema, _ := graphql.NewSchema(graphql.SchemaConfig{
+			Query: RootQuery,
+		})
+
+		result := executeQuery(fmt.Sprintf("%s", body), schema)
 		json.NewEncoder(w).Encode(result)
 	})
 
@@ -38,3 +41,40 @@ func executeQuery(query string, schema graphql.Schema) *graphql.Result {
 	}
 	return result
 }
+
+var RootQuery = graphql.NewObject(graphql.ObjectConfig{
+	Name: "RootQuery",
+	Fields: graphql.Fields{
+		"user": UserField,
+	},
+})
+
+// TODO 調べてコメントを書く
+var UserField = &graphql.Field{
+	Type:        UserType,
+	Description: "Get single user",
+	Args: graphql.FieldConfigArgument{
+		"id": &graphql.ArgumentConfig{
+			Type: graphql.String,
+		},
+	},
+}
+
+// TODO 調べてコメントを書く
+var UserType = graphql.NewObject(graphql.ObjectConfig{
+	Name: "User",
+	Fields: graphql.Fields{
+		"userID": &graphql.Field{
+			Type: graphql.String,
+		},
+		"userName": &graphql.Field{
+			Type: graphql.String,
+		},
+		"description": &graphql.Field{
+			Type: graphql.String,
+		},
+		"email": &graphql.Field{
+			Type: graphql.String,
+		},
+	},
+})

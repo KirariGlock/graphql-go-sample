@@ -1,2 +1,6 @@
+github.com/google/uuid v1.1.1 h1:Gkbcsh/GbpXz7lPftLA3P6TYMwjCLYm83jiFQZF/3gY=
+github.com/google/uuid v1.1.1/go.mod h1:TIyPZe4MgqvfeYDBFedMoGGpEw/LqOeaOT+nhxU+yHo=
 github.com/graphql-go/graphql v0.7.8 h1:769CR/2JNAhLG9+aa8pfLkKdR0H+r5lsQqling5WwpU=
 github.com/graphql-go/graphql v0.7.8/go.mod h1:k6yrAYQaSP59DC5UVxbgxESlmVyojThKdORUqGDGmrI=
+github.com/mitubaEX/graphQL_sample v0.0.0-20181124154643-7a90fd6f3fb6 h1:4TaVwQ67S/fE79HFYodIyXMWh7wFTAFn4NDUs3amN9Y=
+github.com/mitubaEX/graphQL_sample v0.0.0-20181124154643-7a90fd6f3fb6/go.mod h1:GP4IeCoxoI6JgI4xg5pgs/36xpAl3TF1dacdkIC7NkI=
